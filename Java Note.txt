@@ -1,0 +1,815 @@
+
+  package name
+  It should be always lowercase
+  
+  com.toyota.stores
+
+  edu.jnu.finance
+
+ Java class naming rules
+
+1. All Java class names must be noun.
+2. Starting letter should be capital.   Demo    ,  not demo
+3. If class is combinations of multiple words then every starting letter of each word should be capital. ---> DataInputStream
+4. class name consists of all letters, numerical figures & special chars _, $ .  ---> MyDemo2$Project. --->  MyDemo_Project, _MyDemo3,
+5. class name cannot be started with number --> 2MyDemo---> invalid, MyDemo2 ---> valid.
+
+Java variable/method naming rules:
+1. Meaningful .
+2. starting letter of 1st word should be small.  eg : int count,
+3. if variable name consists of multiple words then starting letter of 1st word should be small, but starting letter of 2nd words onward should be capital.  eg : String employeeFirstName.    ---> camelCase.
+
+
+System.out.print("hello");  --> hellohi
+System.out.print("hi");  
+
+System.out.println("hello");  --> hello
+System.out.println("hi");  ---> hi
+
+
+Java souce file extension name will be always .java  ---> MyDemo.java
+
+to compile ---> javac MyDemo.java  --> MyDemo.class
+
+to run the application ---->  java MyDemo
+
+scanf() ---->
+
+Scanner sc=new Scanner(System.in); 
+Scanner class is used to accept input  ---> System.in --->keyboard
+
+  8+9
+ 
+
+int 
+
+double
+
+Write a java application that will accept radius of a circle and display the area & perimeter of the circle
+
+2*3.1416*radius
+
+3.1416*radius*radius
+
+ Circle.java
+
+  Sop("The Teamleader addresses the team \"Hello Guys, The agenda for today.... \\n ...is \".");
+
+Java Primitive Data types:-
+Java has 8 primitive data types
+ 
+boolean        1 bit                            false
+byte            8 bits/ 1byte                   0
+short          16 bits/2 byte                  0
+char           16 bits/2 byte                 ' '
+int               32 bits/4 byte                 0
+float            32 bits/4 byte                0.0
+long            64 bits/8 byte                  0
+double       64 bits/8 byte                 0.0
+
+Due to presence of primitive data types, Java is not 100% oops language.
+Java performs it's input/output operation through String data type---> It is repreneted by a class String present isn java.lang package.
+
+Convert from String to int
+String s="5";
+int i=Integer.parseInt(s);
+Convert from String to double
+String p="3.75";
+double d=Double.parseDouble(p);
+
+ Float.parseFloat()
+ Long.parseLong()
+ Short.parseShort();
+
+ String stg="ABCDEFGH";
+  
+  char arr[]=stg.toCharArray();  ----> convert from String to char array
+  
+  char ch1=stg.charAt(0) ----> A
+char ch2=stg.charAt(1) ----> B
+char ch3=stg.charAt(2) ----> C
+                  stg.charAt(7)  --->H
+
+Conversion from any data type to String
+
+ String.valueOf()
+
+  int x=20;
+  String s1=String.valueOf(x);
+   doube y=25.27;
+  String s2=String.valueOf(y);
+
+ switch...case
+ Write a java application which shall accept two operands & one math operator then perform the operation & display result:
+
+  +, -, *, /, %    ---> int, long, short
+  +, -, *, /   ----> double & float
+
+1. Write a Java application that will accept a whole number and say it is a palindrome number or not
+2. Write a Java application that will accept a number and say it is Amstrong number
+
+153, 370, 371, 407
+
+ 1*1*1= 1
+  5*5*5= 125
+  3*3*3=27
+
+ 153
+123321
+
+
+Java Virtual Machine (JVM) : ---> Java runs in unicode env. Our computer is ASCII. Java needs an unicode env in ASCII computer. This is the JVM . It is a software. It converts Source code  into JVM understandable format i.e bytecode (through compilation). Bytecode needs convert into machine understable format (through interpreter) .
+
+Why java needs both compiler & interpreter ? At the time bytecode convertion into machine understable format through interpreter is time consuming . So in place of interpreter a 2nd compiler is used. This JIT Compiler. 
+
+What JIT --> Just in time Compiler ?  
+
+      a  ---> 97  
+      0 ---> 42
+     
+  256,  65536
+  50000 
+ 
+Java Runtime Env (JRE) :  Through JRE a java application interacts with OS when that java application is running.
+
+
+Array & String  of Java,
+Looping ---> for each
+String functions
+Java Regex---->
+
+Java Array
+
+Java's array is highly fixed in size once declaration is over. If you try to increase the size at runtime, runtime error will be generated.
+1. int arr[]=new int[10];
+2. int []arr=new int[10];
+3. int arr[]={10,20,30,40,50,60,70,80,90,100};
+
+String str[]=new String[5];
+String str[]={"Delhi","Chennai","Bangalore","Pune","Kolkata","Hyderabad"};
+ length---> attribute of an array to specify the length of that array.
+
+
+for each loop  in Java
+1. Faster
+2. Less code
+3. Can be used in advance feature like Lambda expression
+Negetive
+1. backward travel not possible
+2. Display based on choice not possible.
+
+
+copyOf(array,n) ---> copy 1st n items.
+copyOfRange(array,n,m)  ---> copy from nth index to m-1 index.
+
+int arr[3];
+
+int i, j
+
+String class --->
+Java performs  input/output operation through String data type---> It is represented by a class String, which is present in java.lang package. It is an immutable/unchangable class.
+
+charAt()
+toCharArray();
+length() --->  displays the length of String
+
+substring(n) from n+1 to end
+
+substring(n,m) from n+1 to mth
+
+trim()  ---strip()
+                 stripLeading()
+                 stripTrailing()
+                Java 11
+
+Java 11
+repeat(int)
+lines()
+strip()
+stripLeading()
+stripTrailing()
+isBlank()
+
+Inheritance, Interface
+
+What is Inheritance ?
+When one object earns the properties of another object we call it inheritance.
+
+class Demo {
+    int i;
+   double j;
+  public void show(){}
+  }
+
+Demo d1=new Demo();
+
+class Memo extends Demo{
+  char p;
+ String s;
+  public void display(){}
+  }
+
+ Memo m1=new Memo();
+
+1. In java extends key is used to inherit from another.
+2. Java does not allows multiple inheritance but supports multilevel inheritance.   
+3. Parent class ref variable can refer to the child class object
+4. 
+Method Overriding :
+If both parent & child classes have same name,same return type and same parameter then it is called method overrriding.
+The rules of Overriding
+1. private methods cannot be overriden.
+2. static methods cannot be overriden.
+3. final method cannot be overriden.
+4. Overriden methods must have same or wider access modifiers.
+5. Overriden methods must have same or narrower Exception.
+6. super.overridenMethod() --> will call parent's overriden method from child class.
+
+Why inheritance ?
+ 1. Differentiate between general & special attributes .
+2. Re-usability of same code.
+
+Employee
+  Integer employeeId
+  String employeeName
+  String department
+
+ParmanentEmployee
+  Double salary
+
+ContractEmployee
+  Integer contractPeriod
+  Double contractAmount
+
+getdata()
+show()
+
+
+Abstract Methdod: A method in a class without body 
+
+Abstract class: 
+It cannot initialize it's instances.
+It can have member data, constructor, concrete methods & abstract method.
+It can declare ref variable which will refer to the instances of  it's derive class. 
+Abstract class must have it's own derive class otherwise it has no use.
+ Abstract consists of all general attributes & methods.
+ 
+
+   A ---> can be either abstract or concrete class
+   |
+   B--> abstract class
+    |
+   C---> concrete class
+
+public abstract class Employee extends Object{}
+Object class is present in java.lang package . It a concrete class. It is the base of all classes in Java.
+
+
+
+
+What is the diff between Abstract class & interface ?
+
+
+
+Demo.java
+
+javac Demo.java
+
+java Demo
+
+Interface, Functional Interface, Lambda Expression
+static polymorphism
+
+What is interface ?
+
+Interface is a collection of abstract functions. Interface provides guidance to the class about the functionality of  that class. Interface dose not have constructor.  So it cannot be able to declare it's instance.  However interface can declare ref variable which can refer to the implementing class object. It may have member data which is static & final. By default the access modifier of interface members is public. 
+When a class uses an interface the term implements is used. A class can implement multiple interfaces. 
+An interface can inherite another interface. Interface can inherite multiple interfaces.
+
+The class which implements an interface must override all methods belong to that interface. If that class fails to override all methods then that class becomes an abstract class.
+interface I {
+   p()
+   q()
+   r()
+}
+
+class A implements I {
+   p(){}
+   q(){}
+   r(){}
+   s() {}
+  }
+ 
+From jdk1.8, interface can have static & default methods which have their bodies inside the interface defination.
+  
+Create an interface Shape
+  double perimeterCalculator()
+  double areaCalculator()
+   pi=3.1416
+
+Circle
+  double radius;
+Ellipse  
+double minor;
+double major;
+
+You will accept radius, minor, major values through respective class constructors.
+
+& display perimeter & area for Circle & ellipse
+
+pi*r*r
+2*pi*r
+
+pi*minor*major
+
+
+static & default methods in interface
+
+Marker interface ---> interface which has no member i.e empty
+By implementing this interface, a class earns some special privilage.
+eg 
+Remote ---> java.rmi
+Serializable ---> java.io 
+
+Functional Interface ---> Lambda expression
+
+What is Functional Interface:
+The interface which has one & only one abstract method. Then that interface is called functional interface.
+This interface may have any number of static or default methods.
+
+Functional interface is used with Lambda Expression to avoid implementation of that interface.
+What is Lambda expression ? 
+It is known arrow function. Here one unnamed function is created.
+Systex of Lambda expression:
+variable =(arguments)->{body of function}
+                        |                     |
+                       -----------------                     
+  In argument list u need not required to declare he data type of the arguments/parameters
+
+Java's In-built Functional Interface
+1. Function---> The Function interface has only one single method apply(). It can accept an object of any data type and returns a result of any datatype.
+2. Predicate---> it accepts one argument of any data type ( String, Wrapper class etc) and return a boolean value. It has a member function name test().
+3.  BiPredicate--> it accepts two arguments of any data type ( String, Wrapper class etc) and return a boolean value. It has a member function name test().
+4. Supplier --> Supplier interface has only one single method called get(). It does not accept any arguments and returns an object of any data type.
+5. Consumer--> The Consumer interface has only one single method called accept(). It accepts a single argument of any data type and does not return any result.
+
+
+Exception in Java
+
+System.out.println("hello); ---> Syntex error/ compile time error
+
+int i=7;
+int j=2;
+int k=i/j; --> 3 (3.5)   ----> chosen wrong data type so wrong answer ---> logical error
+
+Runtime error  --->   It is a type of error that occures due to absence of any resource (hardware/software) or to perform any illegal task like divide by zero, size of array is 10 and try to set value in cell no 11.
+Whan a runtime error occures , an abnormal situation prevails , attempt to restore the normal situation is called runtime error handling.
+
+In Java runtime errors are handled through a class  Throwable. It is present in java.lang package and inherited from Object class.
+                                                                                                 |
+                                                                 -------------------------------------------------
+                                                                 |                                                                 |
+                                                      Exception                                                     Error
+
+Exception : It is a runtime error which can be handled programaticaly.
+Error :  It is a runtime error which cannot be handled programaticaly.
+
+To handle exception, program needs some extra codes which should not be mixed with normal code to task. For this reason
+ the block concept is introduced. 
+The block which consists of code to task                       ----> try block
+The block which consists of code to handle exception ----> catch block
+The block which consists of code to compulsory task ----> finally block
+
+Every try block must end with either catch block or finally block or both.
+Under same try block if there exists both parent & child exception classes then child exception's catch block should be placed before parent exception catch block.
+
+User defined/Custmor Exception : It is developed to satisfy the client's business rule.
+How to create User defined Exception : An user defined exception is a class which extends Exception class or RuntimeException class.
+Throw clause alerts the JVM to raise an User defind exception .
+
+Write a Java application that will accept a Product details in comma seperated (,) format. 
+ eg Sugar,45.00,50.00,20.00 
+You need to create a class Product with following attributes
+Integer productId
+String productName
+Double purchsePrice
+Double salesPrice
+Double stock
+productId will be autgenerated. salesPrice must be higher than purchasePrice otherwise PriceException will be raised. Stock cannot be negetive otherwise StockException will be raised. If purchasePrice is less than 5 then also PriceException will be raised.
+Accept number of product details to enter then accept all product one by one and store them in an array. Finally display all products according to the order of entry.
+
+Product , StockException, PriceException, ProductMain
+
+Checked Exception: - In some situations like file handling, network applications, Jdbc application etc, Exception handling  is compulsory. On those areas if the respective exceptions are not present then Compiler will refuse to compile that application. These kinds of Exceptio classes are checked by the compiler so they are called checked exception.
+eg :
+IOException, FileNotFoundException, SQLException, ServletException, ClassNotFoundException etc.
+All checked exceptions directly derived from Exception class.
+
+Unchecked Exception : These kinds of exception handling is not compulsory. They are all derived from RuntimeException class.
+eg : ArithmeticException, NumberFormatException, ArrayOutOfBoundException, NullPointerException etc.
+
+ What is diff between throw & throws clauses ?
+
+throws clause : It says the application has checkedExcetion without handling it but in case exception is raised , the application is ready to handle it.
+
+
+:   National Electricity Corporation(NEC) charges monthly electricity charges based on consumption of it’s consumers. The rate of charge is as follows:
+a)	 Upto 200 unit every consumer must pay flat an amount of Rs 300/- (even no consumption).
+b)	 From 201 to 500 unit rate is Rs 1.25/unit.
+c)	 From 501 to 1000 unit rate is Rs 1.00/unit.
+d)	 From 1001 unit and above rate is 0.75/unit.
+Consumption unit must be in whole number. 
+
+The computer operator of NEC normally accepts consumer’s details like consumer number, name, unit consumption in a comma(,) separate String to generate bill (eg: 653,Steve Jones,754). The operator normally generates bill for number of consumers at a time. So before starting operation, the operator asks for number of consumers’ bill to prepare. All bills are stored in an array. Finally display the contains of array, all decimal figures must show 2 decimal places.
+ You need create 
+1.	class Consumer with private member data
+String id;
+String name;
+Integer unitConsumed;
+String finalPayment;
+Create getter/setter methods and constructors.
+override toString() in String.format("%-5s %-20s %-10s %-10s").
+    
+2.	class BillService  with member function
+public static String billCalcultion(Consumer consumer): It will calculate payament amount based of above formula.    
+    
+3.	class Main with method public static void main(String [] arg): It will asks for number of consumers, If it is 0 or negative number message “invalid input” will be displayed and stop the application, if it is a valid positive number then create an array of Consumer and  ask “Enter details of consumer number 1”, “Enter details of consumer number 2”,... so on. After this each of consumer’s bill will be generated then finally display each consumer’s id, name, unit consumed and amount payable. 
+
+4. If the electricity consumption is negetive then raise ConsumptionException
+
+ LocalDateTime class is an immutable date-time object that represents a date-time, with the default format as yyyy-MM-dd-HH-mm-ss.zzz. It inherits object class and implements the ChronoLocalDateTime interface.
+
+ LocalDate class is an immutable class that represents Date with a default format of yyyy-mm-dd. It inherits Object class and implements the ChronoLocalDate interface.
+
+ LocalTime class is an immutable class that represents time with a default format of hour-minute-second. It inherits Object class and implements the Comparable interface.
+
+
+Write a Java application that will accept the date of Birth in dd-mm-yyyy format & say that person is eligible for voting in India ?
+
+
+The Enum in Java is a data type which contains a fixed set of constants.
+
+Ultimate Ad Blocker extension
+Java Collection Framework:
+ It a framework which deals with different java classes , each one of them can contain one or more java class objects. Each container class follows specific data structure models. Each of them stores objects according to a specific data model algo. Each of them allows to insert, update or delete an object without temparing other objects. However internal logics of each container are not exposed to developers. 
+  Some of the containers are ordered some them are unordered.
+However all of the classes & interfaces of collection framework are present in java.util package. Java containers can contain only the objects, no primitive data type. To store primitive data types we have use Wrapper class.
+All collection classes are not type safe. 
+To impose type safeness in collections the concept of generic is introduced. 
+What is generic ?
+It provides a template to create data type independent classes, interfaces and functions. Here at runtime the required data type is passed through parameter. Generic supports only objects & wrapper data types , no primitive. 
+
+Legacy Collection classes:
+Collection Framework is introduced from JDK1.5 with newer classes. These classes can store null as a value. These classes allow multithreading.
+Some classes of collection are present before jdk1.5 , they are called legacy classes. They are thread safe. They do not store null value.
+eg Vector. It is also a dynamic array. They are all accommodated in new Collection Framework with generic concepts.
+
+
+At the top of the collection framework  there exists an interface Collection. 
+                                                                                                                    |
+                                                                                                     List      Set  Queue 
+
+List is the ordered collection i.e it maintains the object according to the order of entry. Duplicate objects are permitted.
+Set is the unordered collection . Duplicate objects are rejected.
+
+
+
+
+List  --> ArrayList ---> Dynamic array
+
+1. Write a java application to store number of  person's dob. Display only those date of birth who are senior citizens i.e age is above 59.
+
+
+Comparable interface
+Java Comparable interface is used to sort the objects of the user-defined class. This interface is found in java.lang package and contains only one method named compareTo(Object). It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only. For example, it may be rollno, name, age or anything else.
+
+
+public int compareTo(Object obj): It is used to compare the current object with the specified object. It returns
+
+positive integer, if the current object is greater than the specified object.
+negative integer, if the current object is less than the specified object.
+zero, if the current object is equal to the specified object.
+
+Comparator interface is used to order the objects of a user-defined class.
+
+This interface is found in java.util package and contains 2 methods compare(Object obj1,Object obj2) and equals(Object element).
+
+It provides multiple sorting sequences, i.e., you can sort the elements on the basis of any data member, for example, rollno, name, age or anything else.
+
+
+
+ int compare(first,second){
+   Double x=first.getEmployeeSalary();
+   Double y=second.getEmployeeSalary();
+  return x.compareTo(y);
+}
+
+
+HashSet mySet=new HashSet();
+   mySet.add();
+  mySet.add();
+mySet.add();
+mySet.add();
+mySet.add();
+ 
+ TreeSet ts=new TreeSet(mySet);
+
+TreeSet checks duplicate elements and sort them  based on Comparable or Comparator interface.
+
+HashSet & LinkedHashSet check duplicate elements based on the hash code of the object. Here programmer's define hash code is required to resolve the issue. So we need to override the hashCode() and equals() methods.
+
+
+
+
+1. Write a Java appliaction that will accept some Employees details in a String based on comma(,) separated format
+ eg : 303,Henry,Admin,35000.00.
+For that purpose you need to develop a class Employee with the following attributes
+Integer employeeId
+String employeeName
+String department
+Double salary
+String desig
+No Employee's salary will be less than 10000.00 or higher than 100000.00. In violation SalaryException will be raised.
+If the salary of employee is between 10000 and 39999 desig will be OA.
+If the salary of employee is between 40000 and 74999 desig will be EXE.
+If the salary of employee is between 75000 and 100000 desig will be VP.
+All employess details will be maintained in the order of entry & there will be no duplicate employeeId.
+Finally display all employees
+
+Map interface is such an interface which store data with the id of data. The id is known as key and data is known as value. Key cannot be duplate, value can be duplicate. From jdk1.8 one null is accepted as key. Value can be any number of null. 
+Map is not inherited from Collection interface.
+If you enter any duplicate key with diff value, then Map will consider thet you are updating the value for that key. So it retains the updated one.
+HashMap ----> it does not maintain the order of entry
+LinkedHashMap ----> maintains the order of entry
+TreeMap ----> sorts the key 
+
+Queue: The interface Queue is available in the java.util package and  extends the Collection interface. It is used to keep the elements that are processed in the First In First Out (FIFO) manner. It is an ordered list of objects, where insertion of elements occurs at the end of the list, and removal of elements occur at the beginning of the list.
+poll() ---> remove an element from top of the Queue.
+peek() ---> present the top element but not remove.
+Diff between poll() & peek() ?
+PriorityQueue  class 
+
+Deque Interface
+The interface called Deque is present in java.util package. It is the subtype of the interface queue. The Deque supports the addition as well as the removal of elements from both ends of the data structure. Therefore, a deque can be used as a stack or a queue.
+
+
+A --- B
+   
+
+What is stream ---> It is a virtual collection of objects i.e it's objects not actually belongs to itself but collected from other collections. If there is any change occures, at once the change will be reflected on stream.
+A single stream is allowed to operate only once. If u try to operate 2nd time, exception will be raised.
+
+stream(), sorted(), filter(), map(), toList(), toSet(), collect()
+
+static &b instance block 
+
+Order of invocation is
+static block-instance block-constructor
+only once                         
+File Handling in Java
+properties files  
+
+In Java all file & IO related classes & interfaces are present in java.io package. To perform any IO operation in application IOException needed to handle.
+Java performs IO opeartion through stream.
+
+What is stream ?
+It is a logical medium through which hardware interacts with data.
+
+Java has two kind of streams
+1. byte stream --> here 1 byte is considered as an unit for io operation
+  Base classes for byte stream
+   a. InputStream class
+       FileInputStream class
+       BufferedInputStream class
+   b. OutputStream class
+         FileOutputStream class
+         BufferedOutputStream class
+
+ 2. character stream --> here 1 char i.e 2 bytes are considered as an unit for io operation.
+    a. Reader class
+         FileReader class
+         BufferedReader class
+    b. Writer class
+         FileWriter class
+         BufferedWriter class
+
+   what computer/cpu accepts that is  input
+    what computer/cpu gives that is output.
+ 
+  keyboard--->cpu--->File
+
+  file--->cpu--->VDU
+
+Write a Java application that will accept some of the product details like product id, name & price in comma separated String format. Store all product details in a file product.txt in the ascending order of productId  in dash(-) separeted format. Duplicate product id will not be acceptable. At first accept the number of product details to enter.
+
+Write a Java application that will accept a product id & display product details from Product.txt file. If the product is not available then display product not exists.You are required to update a product price  & display again finally store it into the file.
+
+Course.txt consists of the following courses
+101-MCA-PG
+102-BCA-UG
+103-DCA-HS
+104-BBA-UG
+105-MBA-PG
+106-FBA-HS
+107-BTECH-UG
+108-MTECH-PG
+109-DEE-HS
+1010-DIS-HS
+You need to write a Java application that will accept category of course and display those courses belong to that category in the following format:
+Enter Course Category: UG
+course id: 102
+course name: BCA
+course id: 104
+course name: BBA
+course id: 107
+course name: BTECH
+If the category name is wrong one display error messages. Category are PG,UG &HS.
+
+File class in Java
+It  is an abstract representation of file and directory pathname. A pathname can be either absolute or relative
+This class is used get information of a file/directory.
+
+https://gfgc.kar.nic.in/sirmv-science/GenericDocHandler/138-a2973dc6-c024-4d81-be6d-5c3344f232ce.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+
+
