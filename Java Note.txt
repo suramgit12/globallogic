@@ -629,7 +629,7 @@ File class in Java
 It  is an abstract representation of file and directory pathname. A pathname can be either absolute or relative
 This class is used get information of a file/directory.
 
-https://gfgc.kar.nic.in/sirmv-science/GenericDocHandler/138-a2973dc6-c024-4d81-be6d-5c3344f232ce.pdf
+
 
 
 
