@@ -1,0 +1,96 @@
+What is JUnit testing?
+Testing is the process of checking the functionality of an application to ensure it runs as per requirements.  It is the testing of single entity (class or method). 
+
+Unit testing can be done in two ways − manual testing and automated testing.
+Automated Testing involves some tools. Junit is one of them.
+
+Junit is an automated tool for java's unit testing. JUnit is a unit testing framework for Java programming language. 
+The features of JUNIT:
+JUnit is an open source framework, which is used for writing and running tests.
+
+Provides annotations to identify test methods.
+
+Provides assertions for testing expected results.
+
+Provides test runners for running tests.
+
+JUnit tests allow you to write codes faster, which increases quality.
+
+JUnit is  simple. It is less complex and takes less time.
+
+JUnit tests can be run automatically and  check their own results and provide immediate feedback. There's no need to manually comb through a report of test results.
+
+JUnit tests can be organized into test suites containing test cases and even other test suites.
+
+JUnit shows test progress in a bar that is green if the test is running smoothly, and it turns red when a test fails.
+
+What is a Unit Test Case ?
+A Unit Test Case is a part of code, which ensures that another part of code (method) works as expected i.e desired results and desired exceptions.
+
+Features of JUnit Test Framework
+JUnit test framework provides the following important features −
+
+Fixtures
+Test suites
+Test runners
+JUnit classes
+
+Fixtures
+Fixtures is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well-known and fixed environment in which tests are run so that results are repeatable. It includes −
+
+setUp() method, which runs before every test invocation.
+tearDown() method, which runs after every test method.
+
+Test Suites
+A test suite bundles a few unit test cases and runs them together.
+
+Test Runners
+Test runner is used for executing the test cases.
+
+JUnit Classes
+JUnit classes are important classes, used in writing and testing JUnits. Some of the important classes are −
+
+Assert − Contains a set of assert methods.
+
+TestCase − Contains a test case that defines the fixture to run multiple tests.
+
+TestResult − Contains methods to collect the results of executing a test case.
+
+JUnit 5 --->
+Junit 4 --->
+Junit 3----> obsolate
+
+To specify the output to the test case method, we will use a special class called Assertions (imported from org.junit.jupiter.api.Assertions). This class provides various methods, using which we can specify the expected output to the test case. Few of the important methods are,
+
+assertEquals(Object expected, Object actuals) - This method accepts two parameters and passes the test case only if both of the parameters are equal
+assertNotEquals(Object expected, Object actuals) - This method accepts two parameters and passes the test case only if both of the parameters are not equal
+assertTrue(boolean condition) - This method accepts a boolean return condition and passes the test case only if the return value is true.
+assertFalse(boolean condition) - This method accepts a boolean return condition and passes the test case only if the return value is false.
+assertNull(Object actual) - This method accepts an object and passes the test case only if the object is null.
+assertNotNull(Object actual) - This method accepts an object and passes the test case only if the object is not null.
+assertThrows(Class<Exception> expectedType, Executable executable) 
+Ex1. 
+Write a Java application that will create a class Voter with a method 
+public boolean voterAgeValidation(int age);
+1. It will return true if the voter's age is 18 & above but returns false in case below 18.
+2. It will throw AgeException in case age is 0 or negetive.
+Finally go for Junit testing including execption testing.
+
+Paramerterized test:
+This feature enables us to execute a single test method multiple times with different parameters. These parameters are nothing but actual & expected values. 
+All parameters  consist of actual & expected values in a Comma Sepearted String. That's why it is called CSV parameter.
+Here we have to use two annotations
+1. @ParameterizedTest  --> the testing method/function is for paramerized testing
+2. @CsvSource---> Parameters are in Comma Seperated Value format.
+
+Ex2.  Create a class Prime with function boolean checkPrime(int no);
+Go for parameterized testing on it.
+
+
+
+ 
+
+
+
+
+
