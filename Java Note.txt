@@ -533,8 +533,9 @@ No Employee's salary will be less than 10000.00 or higher than 100000.00. In vio
 If the salary of employee is between 10000 and 39999 desig will be OA.
 If the salary of employee is between 40000 and 74999 desig will be EXE.
 If the salary of employee is between 75000 and 100000 desig will be VP.
-All employess details will be maintained in the order of entry & there will be no duplicate employeeId.
-Finally display all employees
+All employees details will be maintained in the order of entry & there will be no duplicate employeeId.
+Finally display all employees through a list.
+
 
 Map interface is such an interface which store data with the id of data. The id is known as key and data is known as value. Key cannot be duplate, value can be duplicate. From jdk1.8 one null is accepted as key. Value can be any number of null. 
 Map is not inherited from Collection interface.
@@ -629,42 +630,247 @@ File class in Java
 It  is an abstract representation of file and directory pathname. A pathname can be either absolute or relative
 This class is used get information of a file/directory.
 
+https://gfgc.kar.nic.in/sirmv-science/GenericDocHandler/138-a2973dc6-c024-4d81-be6d-5c3344f232ce.pdf
+
+
+
+public class EmployeePaymentService {
+	public static String paymentCalculation(Employee emp) {
+		double basic=emp.getEmpBasic();
+		double allowance=0.0;
+		if(basic>=50000.00)
+			allowance=basic*0.3;
+		else if (basic>=25000.00)
+			allowance=basic*0.25;
+		else 
+			allowance=basic*0.15;
+		double finalSalary=basic+allowance;
+		DecimalFormat df=new DecimalFormat("0.00");
+		String takeHome=df.format(finalSalary); 
+		return takeHome;
+	}
+}
+ public class EmployeeTaxService {
+	public static String taxCalculation(Employee emp) {
+		/*double basic=emp.getEmpBasic();
+		double allowance=0.0;
+		if(basic>=50000.00)
+			allowance=basic*0.3;
+		else if (basic>=25000.00)
+			allowance=basic*0.25;
+		else 
+			allowance=basic*0.15;
+		double finalSalary=basic+allowance;
+		DecimalFormat df=new DecimalFormat("0.00");
+		String takeHome=df.format(finalSalary); 
+		return takeHome;*/
+		return null;
+	}
+}
+ public class EmployeePFService {	
+	public static String pfCalculation(Employee emp) {
+		/*double basic=emp.getEmpBasic();
+		double allowance=0.0;
+		if(basic>=50000.00)
+			allowance=basic*0.3;
+		else if (basic>=25000.00)
+			allowance=basic*0.25;
+		else 
+			allowance=basic*0.15;
+		double finalSalary=basic+allowance;
+		DecimalFormat df=new DecimalFormat("0.00");
+		String takeHome=df.format(finalSalary); 
+		return takeHome;*/
+		return null;
+	}
+
+}
+
+interface A{
+   p();
+   q();
+   r();
+}
+
+class AAdapter implements A{
+    p(){}
+    q(){}
+    r(){}
+  }
+class SubA extends AAdapter{
+   p(){//code}
+   q(){//code}
+}
+
+class Demo{
+  final int i;
+   Demo(int p){
+     i=p;
+   }
+}
+
+ Demo d1=new Demo(3);
+Demo d2=new Demo(5);
+
+
+class Circle {
+    final double pi;
+    double radius;
+     public Circle( double r)
+    {
+      pi=Shape.pi;
+      radius=r;
+   }
+}
+
+ Circle cl1=new Circle(20)
+Circle cl2=new Circle(25)
+
+interface Shape{
+    double pi=3.1416;
+   }
 
 
 
 
 
 
+new Demo().getdata();
+new Demo.show();
+  
+
+Parent \
+   |
+Child1  Child2 Child3
+
+List<? super Parent> myList=new ArrayList()
+
+   Child1 ch1=new Child1()
+   myList.add(ch1);
+  Child2 ch2=new Child2()
+   myList.add(ch2);
+Child3 ch3=new Child3()
+   myList.add(ch3);
+
+Collection<Integer> cl=new HashSet<Integer>();
+  cl.add(3);
+  cl.add(7);
+  cl.add(null);
+  collection.add(2);
+  collection.add(5);
+
+public class ListDemo {
+ public static void main(String[] args) {
+  Set<Integer> list=new HashSet<Integer>();
+  list.add(5);
+  list.add(7);
+  list.add(6);
+  list.add(9);
+  list.add(3);
+ System.out.println(list.size());
+  list.clear();
+ System.out.println(list.size());
+  list.add(4);
+  list.add(2);
+  list.add(1);
+  list.add(4);
+  System.out.println(list.size());
+ }}
+
+class Fruit{
+  public void show() {
+  System.out.println("Fruit class show method");
+ }}
+public class Mango extends Fruit{
+  public void show() throws Exception{
+  super.show();
+  System.out.println("Mango class show method");
+ }
+ public static void main(String[] args) {
+  Fruit fruit=new Mango();
+  fruit.show();
+ }}
 
 
+public class ExcepDemo {
+   private String str="a";
+    private  void addition1(){
+     try{
+      addition2();
+     }catch(Exception ex){
+      str +="b";
+     }finally{
+      str +="c";
+     }}
+    private void addition2() throws Exception
+    {
+     try{
+      str +="d";
+     }
+     finally{
+      str +="e";
+     }}
+    public void show() {
+     addition1();
+     System.out.println(str);
+    }
+ public static void main(String[] args) {
+  new ExcepDemo().show();   
+ }}
+what is the output ?
 
+abstract class A;
 
+class B extends A{
+}
 
+A a=new B();
 
+Maven: - Maven is a powerful project management tool. It is used for projects build, dependency and documentation.
 
+1. Source code
+2. Documentation
+3. Testing 
+4. Dependency Manegment
 
+@Notnull
 
+javax.validation.constraints.NotNull
 
+external jar files
 
+What is pom.xml file
+How many types of repositories are present in Maven
+Where will you  find local repository in your computer ?
 
+JDBC:
+Java Database Connectivity
+It is an API (application programming interface):
+Through this api any java application can connect to any database.
+Java Application <---->JDBC<-----> JDBC Drivers<---->Database
+JDBCDrivers map (correspondent) the java datatype with Database datatype.
 
+Java Application <---->JDBC<-----> JDBC Oracle Driver<---->Oracle Database
+Java Application <---->JDBC<-----> JDBC DB2 Driver<---->DB2 Database
+Java Application <---->JDBC<-----> JDBC MySql Driver<---->MySql Database
 
+JDBC Drivers are Java classes, they do not present in jdk. They come with databases in the form jar files.
+We need to attach those jar files with our  java applications. 
 
+All classes & interfaces of JDBC are present in java.sql package. Most of them are required to throw SQLException ---> Checked Exception
 
-
-
-
+1. DatabaseManager class: it provides connectivity configuration to the java application.
+2. Connection interface : it maintains the connection between java app & the database.
+3. Statement interface : it creates a channel to send database query from java application to database & receive data.
+4. PreparedStatement : It inherits the Statement interface. It is used parameter for query
+5. CallableStatement  : It inherits the PreparedStatement interface. It allows to execute stored procedures from Java.
+6. ResultSet interface: it accepts  records from database in case query is select and preserves the records in tabular format within java application.
  
+Instances of the class Class represent classes and interfaces in a running Java application.
+Any java class can be detected in a java application through class Class.
 
-
-
-
-
-
-
-
-
-
+Optional class introduced in java 8 to check any class object is null or not.
+This class is used widely in JDBC, hibernate or JPA.
 
 
 
