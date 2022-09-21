@@ -1,0 +1,214 @@
+User Interface ----> Front End    ---> accepts requests & provides output
+Data Processing ----> Middle tier   ---> Java, C#,PHP, Python etc
+Data Storage ---> Database ---> RDBMS, NoSql Database, 
+
+What is Database Management System:
+It is an application software which consists of related data, data access applications, data storage rules, data access rules & security. 
+
+There are several database designs 
+Relational Model:
+Under this model,  data are stored in a tabular form (row/columnwise). Each of the data storage unit is known as table. Each table is linked/related to another table through common column. So it is called Relational Database Model.
+The operation & design of this database is based on Relational Algebra & Set theory.
+
+SQL types :
+DDL : Data Definition Language , It is used to create, modify or delete database schema objects.
+             (Schema objects are logical objects through which database programmers interact with database).
+              create, alter, drop, rename, truncate
+DML : insert, update,delete
+DCL : grant, revoke
+TCL : commit, rollback ,savepoint
+DQL : select
+
+create database globaldb;
+
+data types in MySQL
+
+int 
+bigint
+double
+
+datetime
+
+char
+varchar
+
+a char(10)
+a:='Raja'   ---> 4 + 6 =10
+
+b varchar(10)
+b:='Raja'  ---> 4 
+
+create table department
+(
+   department_id int(5) ,
+   department_name varchar(25) not null,
+  location varchar(15) not null,
+   primary key (department_id)
+);
+
+create table employee
+(
+employee_id int(6),
+employee_name varchar(30),
+department_id int(5),
+salary double(10,2),
+primary key(employee_id)
+);
+
+Alter table employee add foreign key (department_id) references department (department_id);
+
+create table mydemo(
+  id int(5) primary key,
+  name varchar(20)
+ );
+
+1. create table product
+ product_id int(5)  pk
+ product_name varchar(20),
+  price double (8,2)
+  
+2. add new column stock double(8,2)
+
+3. rename the table product into item
+
+4. rename the column stock into quantity
+
+5. change the size of quantity to 10,2
+6.  create table bill
+      bill_number varchar(10) pk
+     customer_name varchar(20)
+     product_id  int (5) fk
+     purchase_qty double (10,2)
+     amount_payable (10,2)
+7. rename colunm amount_payable to final_amount
+8. rename table bill to invoice
+9. change the size of purchae_qty (6,2)
+
+
+insert into department values (105,'Production','Bangalore'),(106,'Store','Hyderabad'),(107,'Welfare','Chennai'),(108,'CustCare','Bangalore'),(109,'Personnal','Hyderabad'),(110,'Reserve','Bangalore');
+
+clauses in SQL
+ > < >= <= = <> 
+in is not in not is not
+
+where, group by, having, order by
+ select * from department  where location<>'Bangalore' and location<>'Hyderabad';
+select * from department  where location not in ('Bangalore','Hyderabad') order by location;
+
+
+insert into department (department_id,department_name) values (111,'Utilization'),(112,'Service');
+
+
+select count(department_id) as dept_count, location from department where location is not null group by location order by dept_count;
+
+select count(department_id) as dept_count, location from department where location is not null group by location having count(department_id)>2;
+
+
+insert into employee values (5002,'Anna',102,45000.00),(5003,'Rio',101,35000.00),(5004,'Jimmy',103,25000.00),(5005,'Rini',101,35000.00),(5006,'Hanna',102,25000.00),(5007,'Eric',104,35000.00),(5008,'Rima',102,65000.00),(5009,'Rick',101,15000.00);
+
+count(), min(), max(), sum(), avg()
+
+empid, empname, salary, deptid, deptname & location;
+
+Theta method: 
+
+select e.employee_id, e.employee_name,e.department_id, d.department_name, e.salary from employee e, department d where d.department_id=e.department_id;
+
+Ansi method
+
+select e.employee_id, e.employee_name,e.department_id, d.department_name, e.salary from employee e inner join department d on d.department_id=e.department_id where e.salary>30000.00;
+
+insert into employee values (5011,'Rita',105,25000.00),(5012,'Rina',105,75000.00),(5013,'Johny',106,33500.00),(5014,'Harry',106,15000.00);
+
+select e.employee_id, e.employee_name, d.department_name from employee e inner join department d on d.department_id=e.department_id where d.location='Bangalore';
+
+select count(e.employee_id), d.location from employee e inner join department d on e.department_id=d.department_id group by d.location;
+
+select count(e.employee_id), d.location from employee e inner join department d on e.department_id=d.department_id where d.location='Hyderabad';
+
+1st Normal Form 
+Slipno  emp_id  emp_name designation  dept_id dept_name  location basic da gross pf overtime dop takehome
+
+                                                    2nd Normal Form
+dept_id dept_name  location | Slipno  emp_id  emp_name designation  dept_id  basic da gross pf overtime dop takehome
+
+Third Normal Form
+
+emp_id  emp_name grade  dept_id | Slipno  emp_id  basic da gross pf overtime dop takehome
+
+    designation (BCNF)
+     grade       designation_name
+        1               VP
+        2               EXE
+       3                OA
+
+Denormalization:
+
+insert into department values (120,'Store','PQR');
+
+  
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
