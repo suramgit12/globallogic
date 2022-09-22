@@ -872,19 +872,23 @@ Any java class can be detected in a java application through class Class.
 Optional class introduced in java 8 to check any class object is null or not.
 This class is used widely in JDBC, hibernate or JPA.
 
+Categories of JDBC Driver
+1. JDBC ODBC Bridge Driver: It  is available only on Microsoft OS like MS Windows X. 
+Java Application<--->JDBC<--->JDBC-ODBC BRIDGE<--->ODBC<--->ODBCDriver<--->Database
+
+2.  Native-API driver: It is developed in C Language.  It can connect Java application (console based) with Database. To connect each database separate drivers are required. 
+
+Java Application <---->JDBC<-----> JNI<---->Database Drivers<---->Database
+                                                         converter from java to C & vise-versa
 
 
+3.  Network Protocol driver: It is exclusively used for Java Web Based application
 
+Java Application <---->JDBC<----->Database Drivers<---->WebServer<----->Database
 
-
-  
-
-
- 
-
-
-
-
+4.  Thin driver
+The thin driver converts JDBC calls directly into the vendor-specific database protocol. That is why it is known as thin driver. It is fully written in Java language. It adopts the TCP/IP technology for connection. 
+Java Application <---->JDBC<-----> JDBC Drivers<---->Database
 
 
 
