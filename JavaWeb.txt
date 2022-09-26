@@ -1,0 +1,54 @@
+Java Web Application on Servlet
+What is Servlet : Servlet is a java class that runs in a web server. It cannot be able to run in normal jvm.  So it is not a POJO (Plain Old Java Object) class. It accepts request from a html file, proccesses that request and finally forwards the respone/output to the client's web browser through html file. 
+
+All Servlet/Java web technical classes & interfaces are present in javax.servlet, javax.servlet.http & javax.servlet.jsp packages. 
+
+1. Servlet interface
+2. GenericServlet class
+3. HttpServlet class
+4. ServletRequest interface
+5. ServletResponse interface
+6. HttpServletRequest interface
+7. HttpServletResponse
+
+Every user defined Servlet must  extend GenericServlet/HttpServlet.
+GenericServlet implements the Servlet interface. It is an abstract class. It inherites the Object class. It is the base class of all Servlet. 
+HttpServlet is the child class of  GenericServlet class. It is also an abstract class. It accommodates the http technical features like get/post, cookies, session variables etc.
+ServletRequest interface accepts the web client's request and forward to the Servlet class. 
+HttpServletRequest interface accepts the http web client's request and forward to the Servlet class. It is child interface of ServletRequest.
+ServletResponse interface forwards the Servlet's output to the client's browser.
+HttpServletResponse interface forwards the Servlet's output to the http client's browser.
+
+Apache Tomcat  is a web server. It can execute Java classes. It's default port number is 8080. 
+
+Writer ---> VDU (System.out)
+
+Writer ----->Response----> Client Broswer
+                      -------------------------------------
+                        Web Server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
