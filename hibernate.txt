@@ -1,0 +1,356 @@
+
+Hibernate
+It is a Java based framework to access database. Here data are remain alive even after the application is over. They will be  in inactive state. That's why it is called Hibernate. The term of keeping alive data beyond application is known as persistance.
+
+Why Hibernate ?
+It uses Java object for database interaction.
+Developers need to interact with the Java class (bean or model)  which represents a table in database.
+We use constructor to create object of that class & data will be automatically inserted in the table.
+When we use setter method, data will be automatically updated in the table.
+When we use getter method, data will be automatically extracted from the table.
+
+It is known as Object Relational Mapping (ORM).
+
+Object Format <------------>Relational Format
+
+Layers of Hibernate
+
+Java Application <----> Hibernate Framework <-------------> API <------------->Database
+
+
+To create hibernate application followings are required
+1. Hibernate jar files or dependecies. 
+2. Java bean class ---> represents a table
+   in java member data  "departmentId" will be auto translated in to the form of "department_id"
+                 abcPqr         ---> abc_pqr 
+3. Mapping configuration ---> bean class represents which table, member data represents which column . It is done through xml file with name as hbm.xml  or annotation.
+
+4. hibernate configuration ---> information regading  database connectivity. It is represented through xml file hibernate-cfg.xml  or through a properties file or through a yaml file.
+
+What are the elements present inside the Hibernate Framework
+1. Configurations: -
+  There two configurations are required
+    a. Object Relational Mapping configuration -> which java class is representing which table-> it is done either by creation of an xml file or through annotation.
+   b. Database connectivity -> it is done either by creation of an xml file or properties file or yaml file.
+ 2. Session : A Session is used to get a physical connection with a database for specific period of time. It is a lightweight object.
+3. SessionFactory: It  creates a session after reading information from configuration object. It is a heavy weight object. It is a thread safe object.
+4. Transaction : This object ensures some action like insert of data, or update of data or deletetion of data will take place in database from java application.
+5. Query:
+6. Criteria: The Hibernate's Session interface provides createCriteria() method, which can be used to create a Criteria object that returns instances of the persistence/model object's class when  application executes a criteria query.
+
+Restrictions.gt
+Restrictions.ge
+Restrictions.lt
+Restrictions.le
+Restrictions.eq
+Restrictions.ne
+
+
+
+
+What is Hibernate Dialect ?
+It converts java data handling statement into proper database specific SQL  code .
+
+What is generator class in hibernate ?
+It generates primary key/ id for a class object.
+They are:
+assigned
+increment
+sequence
+hilo
+
+What is properties file?
+In java .properties files are used to describe some configuration information in alternate to xml file. The properties file maintain info in key/value pair.
+
+
+ 
+
+what is the differences between session.save()  and session.persists() ?
+
+1. Both store object in database.
+2. Both can be used for updatation of object.
+3. save is available for hibernate only but persists is available both hibernate & jpa.
+4. save returns an int value (which is the id of the object in case generator type is increment), persists return void.
+
+what is the differences between session.load()  and session.get() ?
+
+session.get()  creates actual object
+session.load()  creates fake object
+
+empno empname    salary
+101       Lowrance   10000.00
+102       Hanna         12500.00
+
+ Employee emp1=(Employee)session.get(Employee.class, new Integer(102)); 
+  sysout(emp1.empno) -> 102, 
+sysout(emp1.empname)->Hanna
+sysout(emp1.salary)->12500.00
+
+ Employee emp2=(Employee)session.load(Employee.class, new Integer(102)); 
+sysout(emp2.empno) -> 102, 
+sysout(emp2.empname)->null
+sysout(emp2.salary)->null
+
+
+  emp2.getEmpno() -> 102, emp2.getEmpname()->Hanna emp2.getSalary()-> 12500.00
+
+Difference Between Merge And Update Methods In Hibernate
+
+Both  merge() & update() methods in hibernate is used to convert the object which is in detached state into persistence state.
+
+
+Hibernate Lifecycle
+
+Hibernate object( Model class object) life cycle
+
+Transient state:-
+The transient state is the initial state of an object.
+Once we create an instance of POJO (Plain Old Java Object) class, then the object entered in the transient state.
+Here, an object is not associated with the Session. So, the transient state is not related to any database.
+Hence, modifications in the data don't affect any changes in the database.
+The transient objects exist in the heap memory. They are independent of Hibernate
+   
+Persistent state:-
+As soon as the object associated with the Session, it entered in the persistent state.
+Hence, we can say that an object is in the persistence state when we save or persist it.
+Here, each object represents the row of the database table.
+So, modifications in the data make changes in the database.
+
+Detached State:-
+Once we either close the session or clear its cache, then the object entered into the detached state.
+As an object is no more associated with the Session, modifications in the data don't affect any changes in the database.
+However, the detached object still has a representation in the database.
+If we want to persist the changes made to a detached object, it is required to reattach the application to a valid Hibernate session.
+To associate the detached object with the new hibernate session, use any of these methods - load(), merge(), refresh(), update() or save() on a new session with the reference of the detached object.
+
+There two types of Hibernate fetching
+Lazy:-  It is a design pattern. When the object is required to initialize, it is initialized i.e. on demand.
+
+Lazy Loading
+Advantages:
+Much smaller initial load time than in the other approach
+Less memory consumption than in the other approach
+
+Disadvantages:
+Delayed initialization might impact performance during unwanted moments.
+In some cases we need to handle lazily initialized objects with special care, or we might end up with an exception.
+
+Eager:- It is a design pattern. When the object is used at once it is initialized. EAGER loading of collections means that they are fetched fully at the time their parent is fetched. 
+
+Advantages:
+No delayed initialization-related performance impacts
+
+Disadvantages:
+Long initial loading time
+Loading too much unnecessary data might impact performance
+
+
+
+
+        
+
+Mappings of RDBMS & their implementations in Hibernate:
+
+Batch -> batchId
+               facultyName
+               duration 
+
+Student ->  registrationNumber
+                   studentName
+                   dateofbirth
+                   batchNumber
+            
+
+ create table batch (
+         batch_id       varchar(10),
+         faculty_name varchar(25),
+         duration int(5),
+         primary key (batch_id)
+        ); 
+
+
+create table student(
+         rollno       int(6),
+         student_name varchar(25),
+         date_of_birth varchar(25),
+         batch_id varchar(10),
+         primary key (rollno),
+         foreign  key (batch_id) references batch(batch_id)
+        ); 
+
+ One To Many relation
+
+tables 
+1. BillMaster
+  bill_number (pk) 
+  customer_name 
+  total_amount
+
+2. BillDetails
+   serial_number (pk) generationType.IDENTITY
+   bill_number (fk)
+   product_name
+    rate
+   purchaseQty
+   amount
+
+Many to Many
+
+create table Faculty (
+   faculty_id  int(5), 
+   faculty_name varchar(25),
+   specialization  varchar(30)
+  );
+
+create table BatchClass (
+   batch_id  int(5), 
+   domain_name varchar(15),
+   semester  varchar(30),
+ primary key (batch_id)
+  );
+
+ create table BatchFaculty(
+    batch_id int(5),
+    faculty_id int(5),
+    foreign key (batch_id) references BatchClass (batch_id),
+    foreign key (faculty_id) references Faculty (faculty_id)
+)
+
+table Faculty
+  faculty_id pk
+  faculty_name
+  skill
+  
+table BatchClass
+  batch_id  pk
+  domain 
+   semester
+
+
+  BatchFaculty
+   serialNo pk
+   faculty_id fk
+   batch_id fk
+   
+
+
+
+  
+
+ @JoinTable(name = "batchfaculty",   joinColumns = { @JoinColumn(name = "batch_id")}, inverseJoinColumns = { @JoinColumn(name = "faculty_id") })
+  
+
+	ddl auto	(CREATE-DROP ,CREATE, UPDATE, VALIDATE,NONE)
+
+create 
+	– Hibernate first drops existing tables, then creates new tables.
+update 
+	– the object model created based on the mappings (annotations or XML) is compared with the existing schema, and then Hibernate updates the schema according to the diff. It never deletes the existing tables or columns even if they are no more required by the application.
+
+create-drop 
+	– similar to create, with the addition that Hibernate will drop the database after all operations are 		completed. Typically used for unit testing.
+		
+validate 
+	– Hibernate only validates whether the tables and columns exist, otherwise it throws an exception
+none 
+	– this value effectively turns off the DDL generation
+
+	I chose update.	
+	that means, 
+			if the table is not present, it creates.	
+			if the table already exists, and matches the structure according to the entity class, no changes happen
+			if the entity class has properties that are not found in the table, then those columns are added to the existing table
+
+			update DO NOT remove records present in the table
+	i could choose CREATE
+			it removes all records present in the table
+			earlier, first time when i run, i chose "create" after that i modified it to update. Later i understood, UPDATE itself will do 
+
+What is Dialect in Hibernate ?
+It converts java specifc code for accessing database & tables into Database specific SQL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

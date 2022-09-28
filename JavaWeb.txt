@@ -27,6 +27,40 @@ Writer ----->Response----> Client Broswer
                       -------------------------------------
                         Web Server
 
+What is JSP ?
+Java Server Pages
+It is a java based web development technology which is alike a html page. Here same manner css, bootstrap & javascript codes can be attached like html page. It supports 1. all html tags, 2. all css,boostrap & scripting codes, 3. own tags (developed based on java applications, perform to proccess the data , that's why they called themselves as Action tag). 4. Java programming code. So it is an extension of html page. In industry jsp pages are used for view purpose i.e accept input from users & display proccessed output.
+However usage of Java code inside JSP page is considered not as an ideal  in industry.
+Actually Jsp is a disguised servlet. 
+All jsp files are converted into a servlet which extends HttpJspBase class (it is a derived class of HttpServlet). 
+
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>   ----> Page directive. 
+It directs a jsp page to convert into a java class. 
+
+Who converts a jsp file into a servlet. It is the JspEngine present in jasper application which is auto invoked.
+
+Java Bean class ----> Model
+Jsp Page ---> View
+Servlet  ----> Controller
+
+
+How a servlet invokes another servlet/jsp/html file?
+RequestDispatcher interface & method forward() or include()
+Servlet ---source
+jsp ----target
+
+In case of include() texts  of both Source & target will be displayed on the browser.
+In case of forward() texts  of  only target will be displayed on the browser.
+
+How to transfer data from Source to destination
+request.setAttribute(data's identifier, data to transfer) 
+
+JSTL : JSP Standard Tag Library (JSTL). They are jsp's own tags.
+             every tag has two name prefix & suffix. So a tag appears like
+             <prefix:suffix>  </prefix:suffix>
+             Normally jstl tags are not available in jdk. So external file jstl.jar must be tagged in our application.
+
 
 
 
