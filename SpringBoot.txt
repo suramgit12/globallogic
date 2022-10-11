@@ -1,0 +1,297 @@
+What is Spring Boot ?
+
+Spring Boot is a web based project that is built on the top of the Spring Framework. It provides an easier and faster way to set up, configure, and run web-based applications.  Spring Boot is the combination of Spring Framework and Embedded Servers (such as Tomcat, Jetty etc).  It is used to create a stand-alone Spring-based application that you can just run because it needs minimal Spring configuration.
+
+Why should we use Spring Boot Framework?
+
+We should use Spring Boot Framework because:-
+
+The dependency injection approach is used in Spring Boot.
+It contains powerful database transaction management capabilities.
+It simplifies integration with other Java frameworks like JPA/Hibernate ORM, Struts, etc.
+It reduces the cost and development time of the application.
+It needs minimal Spring configuration & auto configuration is there.
+No xml configuration is required. (annotations ,properties file & yaml).
+ 
+Spring Boot Features:-
+Web Development
+SpringApplication
+Externalized Configuration
+Properties Files
+YAML Support
+Type-safe Configuration
+Logging
+Security
+
+Spring Boot Architecture
+
+ There are four layers in Spring Boot are as follows:
+
+Presentation Layer:- The presentation layer handles the HTTP requests, translates the JSON parameter to object, and authenticates the request and transfer it to the business layer. In short, it consists of views i.e., frontend part.
+
+Business Layer:-The business layer handles all the business logic. It consists of service classes and uses services provided by data access layers. It also performs authorization and validation.
+
+Persistence Layer:- The persistence layer contains all the storage logic and translates business objects from and to database rows.
+
+Database Layer:- In the database layer, CRUD (create, retrieve, update, delete) operations are performed.
+
+Spring initializer
+1. calculatorEntry.jsp
+2. calculatorDisplay.jsp
+CalculatorService
+CalculatorController
+SpringBoot application
+
+
+@RestController: It is a combination of @Controller and @ResponseBody annotations. The @RestController annotation is itself annotated with the @ResponseBody annotation. It eliminates the need for annotating each method with @ResponseBody.
+
+@ResponseBody converts a java object in the form of json or xml format. By default into json.
+@RequestBody  converts a json or xml formatted data into java object.
+
+ModelAndView class
+
+
+Spring Boot actuator, endpoint ,exception handling
+
+The @ControllerAdvice is an annotation, to handle the spring boot exceptions globally.
+
+@ExceptionHandler
+
+@Query("SELECT b FROM Book b WHERE b.title = ?1 and b.author = ?2")
+Book findBookByTitleAndAuthorIndexJpql(String title, String authorName);
+In the preceding code, the title method parameter will be assigned to the query parameter with index 1. Similarly, authorName will be assigned to the query parameter with index 2.
+
+It is important to note that the order of the query parameter indexes and the method parameters must be the same.
+
+Therefore, this code will not work.
+
+@Query("SELECT b FROM Book b WHERE b.title = ?2 and b.author = ?1")
+Book findBookByTitleAndAuthorIndexJpql( String authorName, String title);
+
+@Query("SELECT p FROM Person p WHERE LOWER(p.lastName) = LOWER(:lastName)")
+    public List<Person> find(@Param("lastName") String lastName);
+
+public interface AuthorRepository extends JpaRepository<Author, Long> {
+ 
+    @Query("FROM Author WHERE firstName = ?1")
+    List<Author> findByFirstName(String firstName);
+ 
+    @Query("SELECT a FROM Author a WHERE firstName = ?1 AND lastName = ?2")
+    List<Author> findByFirstNameAndLastName(String firstName, String lastName);
+ 
+}
+
+https://thorben-janssen.com/spring-data-jpa-query-annotation/
+
+Jsp page -> 1.  a)display all employees in tabular format
+                      Id Name Department Basic Net   Show  NetCalculation  Delete
+                       b) Option to goto  create new employee entry page
+                    
+                     2.  employee entry page -> id name department basic (no net)
+
+                    3. employee show page-> display a single employee details
+
+                     @PostMapping("employee")
+	@PutMapping("employee")
+	@DeleteMapping("employee")
+
+1. @SpringBootApplication
+2. SpringBoot Actuator & endpoint
+3. Spring Security
+
+How does a Spring Boot application configure itself ?
+Ans : Through the annotation  @SpringBootApplication. This annotation is the combination of three annotations,  @EnableAutoConfiguration, @ComponentScan, and @Configuration.
+
+@Configuration: It is a class-level annotation. The class annotated with @Configuration used by Spring Containers as a source of bean definitions.
+
+@ComponentScan: It is used when we want to scan a package for beans. It is used with the annotation @Configuration. We can also specify the base packages to scan for Spring Components.
+
+@EnableAutoConfiguration: The Spring Boot auto-configuration  tries to automatically configure your Spring application based upon the JAR dependency you have added in the classpath(POM.xml) .
+
+@Controller
+@ResponseBody
+ public class MyController{
+
+}
+
+
+@RestController
+ public class MyController{
+
+}
+
+@ResponseBody converts a java object in the form of json or xml format. By default into json.
+@RequestBody  converts a json or xml formatted data into java object.
+
+What is the difference between @PutMapping & @PatchMapping  ?
+Both are used for updating the data.
+@PutMapping except id , all attributes are updated.
+
+
+Original 101, Ram, Sales, 30000.00, 0.00
+
+
+Updated 101, Ram, Admin, 30000.00, 45000.00 @PutMapping 
+
+
+Updated 101, Ram, Admin, 30000.00, 45000.00 @PatchMapping 
+
+Spring Boot Actuator:-
+It is a module of the Spring Boot Framework. The main purpose of this module to monitor the performance of   spring boot applications. It also publish the result. This module includes a number of features that help us to monitor and manage the Spring Boot application. 
+
+There are three main features of Spring Boot Actuator:
+
+Endpoints: It is the gateway to interact with the application for monitoring purpose. The Spring Boot provides a number of built-in endpoints. We can also create our own endpoint. We can enable and disable each endpoint individually.
+
+Metrics:- Spring Boot Actuator provides dimensional metrics by integrating with the micrometer.  It provides vendor-neutral interfaces for timers, gauges, counters, distribution summaries and long task timers.
+
+Audit:-It presents a picture/result of the performance of an/more application/applications. Spring Boot provides a flexible audit framework that publishes events to an AuditEventRepository. It automatically publishes the authentication events if spring-security feature is present in the application.
+
+
+Spring Boot Security:
+Spring Security is a framework which provides various security features like: authentication, authorization to create secure Java Enterprise Applications.
+
+What is Authentication: Authentication is the process of knowing and identifying the user who wants to access the java applications.
+
+What is Authorization: Authorization is the process to allow valid user to perform some actions in the application. i.e what is a valid user's boundary of action, that specification.
+
+Spring Security Features: 
+LDAP (Lightweight Directory Access Protocol)
+Single sign-on
+JAAS (Java Authentication and Authorization Service) LoginModule
+Third  party Authentication service
+Basic Access Authentication
+Web Form Authentication
+HTTP Authorization
+
+ http.antMatcher("/").authorizeRequests().anyRequest().hasRole("ADMIN").and().httpBasic();  
+
+ http. antMatcher() tells Spring to only configure HttpSecurity if the path matches this pattern.
+ The authorizeRequests(). antMatchers() is then used to apply authorization to one or more paths you specify in antMatchers() .
+anyRequest(). authenticated() is that any request must be authenticated otherwise my Spring app will return a 401 response.
+hasRole, hasAnyRole. These expressions are responsible for defining the access control or authorization to specific URLs or methods in your application.
+The httpBasic() method is used to enable the feature to authenticate the user during HTTP request.
+
+
+What is Spring Boot Swagger ?
+Ans: Swagger is a json based tool, a specification and a complete framework implementation for producing the visual representation of RESTful Web Services. It enables documentation to be updated at the same pace as the server. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Thus Swagger removes the guesswork in calling the service.
+
+What is OPI Specifications ?
+Ans:The open API specification is a widely used standard for API documentation.  OpenAPI Specification (formerly Swagger Specification) is an API description format for REST APIs. An OpenAPI file allows you to describe your entire APIs.
+
+What is Web Service ?
+It is software system by which two or more web applications with different configuration, can communicate & share resources.
+
+ I am going to purchase air ticket from Kolkata to Delhi  through makemytrip.com
+
+     Web Site of Makemytrip is developed in PHP-> Anroid OS
+     ICICI Bank web site is developed in C#.net & ASP.net -> Windows OS
+
+   Both the web sites configurations are totally different. How they will communicate with each other ?
+Here comes the concept of  Web Service.
+
+Json format of data transfer
+{
+"employees":[
+    {"empid":101,"firstName":"John", "lastName":"Doe"},
+    {"empid":102,"firstName":"Anna", "lastName":"Smith"},
+    {"empid":103,"firstName":"Peter", "lastName":"Jones"},
+    {"empid":104,"firstName":"Rajesh", "midName":"Kumar", "lastName":"Sharma"}
+]
+}
+NOSql -> MongoDB
+
+What are the features of Web Services:-
+1. XML-Based
+2. Json Supported
+3. Yaml is also introduced.
+4. High sub components
+5. Loosely coupled
+6. Supports Remote Procedure Calls (RPCs)
+7. Ability to be Synchronous or Asynchronous movement.
+8. Supports Document Exchange
+
+
+
+Store Managment System
+ 1. Purchase Items -> Supplier system
+ 2. Stock System
+ 3. Consumer Items-> Consumer System
+4. PrintReport System->
+
+Types of Web Services:
+
+1.  SOAP WebService
+Simple Object Access Protocol
+
+SOAP is a XML-based protocol for accessing web services.
+
+SOAP is a W3C recommendation for communication between applications.
+
+As SOAP is XML based, so it is platform independent and language independent. In other words, it can be used with Java, .Net or PHP language on any platform.
+
+Advantages of Soap Web Services
+WS Security: SOAP defines its own security known as WS Security.
+
+Language and Platform independent: SOAP web services can be written in any programming language and executed in any platform.
+
+It is built-in jdk for any version. To create any soap application in Java we do not require any external jar file for Soap. All Soap packeges, classes, interfaces are present in jdk.
+
+All the soap related classes, intefaces & annotations are present in javax.jws in JDK
+
+Endpoint is an URL  through client sends a request/message 
+
+Disadvantages:-
+
+slow: SOAP uses XML format that must be parsed to be read. It defines many standards that must be followed while developing the SOAP applications. So it is slow and consumes more bandwidth and resource.
+
+WSDL dependent: SOAP uses WSDL (Web Service description Langauge) and doesn't have any other mechanism to discover the service.
+
+It does not support Json format.
+
+
+WSDL
+WSDL is an acronym for Web Services Description Language.
+
+WSDL is a xml document containing information about web services such as method name, method parameter and how to access it.
+It acts as a descriptor for a SOAP Web Service application.
+
+WSDL is a part of UDDI. It acts as a interface between web service applications.
+
+
+
+
+UDDI
+UDDI is an acronym for Universal Description, Discovery and Integration.
+
+UDDI specifies how to create an WSDL for a particular SOAP WebService application.
+
+UDDI is a XML based framework for describing, discovering and integrating web services.
+
+UDDI is a directory of web service interfaces described by WSDL, containing information about web services.
+
+2. RESTful Web Services
+
+REST stands for REpresentational State Transfer. It is not a protocal. It is an architectural style for web service.
+
+Advantages of RESTful Web Services
+1. Fast: RESTful Web Services are fast because there is no strict specification like SOAP. It consumes less bandwidth and resource.
+
+2. Language and Platform independent: RESTful web services can be written in any programming language and executed in any platform.
+
+3. Permits different data format: RESTful web service permits different data format such as Plain Text, HTML, XML and JSON.
+
+4. Can use SOAP: RESTful web services can use SOAP web services as the implementation. Reverse is not possible because Soap cannot use Restful webservice.
+
+
+insert into users values ('Lotus','PineApple'),('Tulip','Guava'),('Marigold','Mango');
+   
+
+
+
+
+
+
+
+
+
