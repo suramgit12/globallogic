@@ -287,6 +287,81 @@ Advantages of RESTful Web Services
 insert into users values ('Lotus','PineApple'),('Tulip','Guava'),('Marigold','Mango');
    
 
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+.properties file 
+
+server.port=9191
+spring.mvc.view.prefix = /WEB-INF/views/
+spring.mvc.view.suffix = .jsp
+
+yaml file
+
+
+What is JPA?
+
+The Java Persistence API is concerned with persistence (storage), which  means any mechanism by which Java objects outlive the application process that created them ie. they will be remain alive even after the java application stops. The JPA specification lets you define which objects should be persisted (stored), and how those objects should be persisted in  Java applications.
+
+JPA is not a tool or framework; rather, it defines a set of concepts that can be implemented by any tool or framework. While JPA's object-relational mapping (ORM) model was originally based on Hibernate, 
+
+https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-introduction/
+
+What is Spring Data JPA ?
+Spring Data JPA is not a JPA provider. It is a library / framework that adds an extra layer of abstraction on the top of our JPA provider. If we decide to use Spring Data JPA, the repository layer of our application contains three layers that are described in the following:
+
+Spring Data JPA provides support for creating JPA repositories by extending the Spring Data repository interfaces.
+Spring Data Commons provides the infrastructure that is shared by the datastore specific Spring Data projects.
+The JPA Provider implements the Java Persistence API.
+
+JpaRepository 
+JpaRepository is a JPA (Java Persistence API) specific extension of Repository. It contains the full API of CrudRepository and PagingAndSortingRepository. So it contains API for basic CRUD operations and also API for pagination and sorting.
+
+What is CRUD repository?
+CrudRepository is a Spring Data interface for generic CRUD operations on a repository of a specific type. It provides several methods out of the box for interacting with a database.
+
+What is paging and sorting repository?
+PagingAndSortingRepository is an extension of CrudRepository to provide additional methods to retrieve entities using the pagination and sorting abstraction. It provides two methods : Page findAll(Pageable pageable) – returns a Page of entities meeting the paging restriction provided in the Pageable object.
+
+What is difference between CrudRepository and JpaRepository interfaces in Spring Data JPA?
+CrudRepository mainly provides CRUD functions.
+PagingAndSortingRepository provides methods to do pagination and sorting records.
+JpaRepository provides some JPA-related methods such as flushing the persistence context and deleting records in a batch.
+
+JPARepository	CrudRepository
+1	Hierarchy	JPA extend crudRepository and PagingAndSorting repository.	Crud Repository is the base interface and it acts as a marker interface.
+2	Batch support	JPA  provides some extra methods related to JPA such as delete records in batch and flushing data directly to a database.	Crud Repository provides only CRUD functions like findOne, saves, etc.
+3	Pagination support	JPA repository also extends the PagingAndSorting repository. It provides all the method for which are useful for implementing pagination.	Crud Repository doesn't provide methods for implementing pagination and sorting.
+4	Use Case	JpaRepository ties your repositories to the JPA persistence technology so it should be avoided.	We should use CrudRepository or PagingAndSortingRepository depending on whether you need sorting and paging or not.
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
+
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html
+
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html
+
+https://www.javatpoint.com/spring-boot-jpa
+What is EntityManager ?
+The EntityManager API is used to create and remove persistent entity instances, to find entities by their primary key, and to query over entities. The set of entities that can be managed by a given EntityManager instance is defined by a persistence unit.
+
+Persistence: It is a class that contains static methods to obtain an EntityManagerFactory instance.
+EntityManagerFactory: It is a factory class of EntityManager. It creates and manages multiple instances of EntityManager.
+EntityManager: It is an interface. It controls the persistence operations on objects. It works for the Query instance.
+Entity: The entities are the persistence objects stores as a record in the database.
+Persistence Unit: It defines a set of all entity classes. In an application, EntityManager instances manage it. The set of entity classes represents the data contained within a single data store.
+EntityTransaction: It has a one-to-one relationship with the EntityManager class. For each EntityManager, operations are maintained by EntityTransaction class.
+Query: It is an interface that is implemented by each JPA vendor to obtain relation objects that meet the criteria.
+
+
+
+ 101 purchase pune
+ 102
+ 103
+  101 purchase pune
+
+
 
 
 
