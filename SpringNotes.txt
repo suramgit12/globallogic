@@ -1,0 +1,273 @@
+Spring :-
+MVC-> Model View Controller
+
+2 tier architecture---> user input/output layer-> Backend layers
+3 tier architecture--> user input/output layer-> Application layer->Database layer
+                                        View                                   Model & Controller
+n tier architecture->user input/output layer->Controller layer->different applications layers->Database layers. -Spring is based on this.
+
+What is Spring:- It is a Java based Framework for enterprise level application development platform. It follows the concept of n-tier & MVC  architecture. It is a lightweight framework. 
+
+Why Spring:
+1. It is POJO based.
+2. Modular MVC application
+3. Centralized exception handling
+4. Testability
+5. Integrated Web based MVC.
+6. Integration with other frameworks like Hibernate/JPA
+7. Lightweight.
+8. Transaction management.
+
+Architecture of Spring:-
+1. Core Container -> Bean, Core, Spel, Context
+a) Bean is the model class
+b) Core  consists of IOC & Dependency Injection (DI).
+c) Context is the binding of Bean classes with core elements like IOC & DI.
+d) SpEL module provides a powerful expression language for querying and manipulating an object graph at runtime.
+
+2. Data Access/Integration
+a) The JDBC module provides a JDBC-abstraction layer that removes the need for tedious JDBC related coding.
+
+b) The ORM module provides integration layers for popular object-relational mapping APIs, including JPA, Hibernate, and iBatis.
+
+c) The OXM module provides an abstraction layer that supports Object/XML mapping implementations for JAXB,  XMLBeans, JiBX and XStream. It is also taking care of Json
+
+d) The Java Messaging Service JMS module contains features for producing and consuming messages.
+
+e) The Transaction module supports programmatic and declarative transaction management for classes that implement special interfaces and for all your POJOs.
+
+3.Web
+The Web layer consists of the Web, Web-MVC, Web-Socket  modules the details of which are as follows −
+
+The Web module provides basic web-oriented integration features such as multipart file-upload functionality and the initialization of the IoC container using servlet listeners and a web-oriented application context.
+
+The Web-MVC module contains Spring's Model-View-Controller (MVC) implementation for web applications.
+
+The Web-Socket module provides support for WebSocket-based, two-way communication between the client and the server in web applications.
+
+A socket is combination of protocal+ipaddress+port number
+ http://137.2.90.180:8632 ----> Socket
+ localhost:
+http://127.0.0.1:8787
+
+    033-45691278
+    044-45691278
+    080-65432190-50
+
+class Demo {
+    int i;
+    double j;                    i=10, j=11.25, q="GL"
+    String q;
+    getdata();
+    show();
+}
+
+Demo d;
+Demo d=new Demo();
+
+  d.getdata();
+NullpointerException
+
+What is Dependency Injection ?
+It  is a design pattern. Dependency injection provides values to object's attributes,  for object's instantiation & initialization instead of  construct them itself. Dependencies can be injected into objects by many means such as constructor injection or setter injection. 
+
+There are two types of  DI in Spring ; DI by setter, DI by constructor --> all the DIs in Spring either xml or annotation based.
+
+What is Inversion of Control?
+It means giving the control of creating and instantiating the bean class/classes objects inside the Spring bean container.  The developer needs  to provide data for the bean class attributes in the  xml file or through annotation in configuration classes.
+The advantages of Inversion of Control:
+1. Decoupling the execution of a task from its implementation
+2. Making it easier to switch between different implementations
+3. Greater modularity of a program
+4. Greater ease in testing a program by isolating a component or mocking its dependencies, and allowing components to communicate through contracts.
+
+There are two types of IOC containers in Spring. They are:
+
+BeanFactory
+ApplicationContext
+
+The ApplicationContext interface is built on top of the BeanFactory interface. It adds some extra functionality  such as simple integration with Spring's AOP, message resource handling , event propagation, application layer specific context (e.g. WebApplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.
+
+BeanFactory loads beans on-demand, while ApplicationContext loads all beans at startup. Thus, BeanFactory is lightweight as compared to ApplicationContext.
+Lazy Loading With BeanFactory.
+Eager Loading With ApplicationContext
+
+Spring Bean Life Cycle – Bean Initialization and Destruction
+
+@Configuration: It is a class-level annotation. The class annotated with @Configuration used by Spring Containers as a source of bean definitions.
+
+Autowiring
+
+Autowiring provides a way to automatically detect the relationships between various beans. The Spring container can autowire relationships between collaborating beans without using <constructor-ref> and <bean-ref> elements, which helps cut down on the amount of XML configuration you write for a big Spring-based application.
+Autowiring in  spring framework enables to inject the object dependency implicitly. It internally uses setter or constructor injection. Autowiring can't be used to inject primitive and string values. It works with reference only.
+There are 3 autowiring modes
+1. byName : The byName mode injects the object dependency according to name of the bean. In such case, property name and bean name must be same. It internally calls setter method.
+
+2. byType: The byType mode injects the object dependency according to member data-type.  There should be only one bean object of that type. If there exists more bean object of same type, autowire byType will not work. The property name and bean name can be different. It internally calls setter method.
+3. constructor
+
+Spring MVC:
+
+A Spring MVC is an annotation based Java framework which is used to build Spring based web applications. It follows the Model-View-Controller design pattern. It implements all the basic features of a core spring framework like Inversion of Control, Dependency Injection, AOP (Aspect oriented programming). 
+Cross Cutting concern:-
+
+Who will act as  model  in Spring MVC -----> Bean classes. 
+Who will act as  views  in Spring MVC ---->jsp files, html files (Thymeleaf concept)
+Who will act as controller in Spring MVC --> Servlets ---> Controller/RestController
+
+ Spring MVC  uses MVC in spring framework with the help of DispatcherServlet.
+
+ DispatcherServlet- It is a class that receives the incoming request and maps it to the right resource such as controllers, models, and views. It is also known as front controller. The developer does not require to create this one but need to configure it through an xml or config class.
+
+Model - A model consists the data of the application. A data can be a single object or a collection of objects.   Here, a data can be in any form such as objects, strings, information from the database, etc.
+
+Controller - A controller contains the business logic for application. Here, the @Controller annotation is used to mark the class as the controller. It is the most important feature of Spring MVC.
+
+View - A view represents the provided information in a particular format. Generally, JSP+JSTL is used to create a view page. Spring also supports other view technologies such as Apache Velocity, Thymeleaf and FreeMarker.
+
+Model Interface :-The HttpServletRequest reads the request/information provided by the web user and pass it to the Model interface. Now, a view page can easily access the data from the Model interface. It also passes the data from controller to view.
+
+View(jsp/html)<------>DispatcherServlet<-------->Controller classes<------->Model/Service/views
+                                      (Front Controller)
+
+  Employee -> int id, String name, double salary
+   
+    int x=Integer.parseInt(request.getParameter("t1"));
+    String  y=request.getParameter("t2");
+   double z=Double.parseDouble(request.getParameter("t3"));
+   Employee emp=new Employee(x,y,z);
+  ---->  Model interface -> accepting all data from html file and converting them into the form of Employee object.
+
+ @Controller-> it creates a servlet which acts as a controller
+ @RequestMapping-> It indicates that a particular method on this controller is associated with a url-path.
+    html file
+   form  action="rose" 
+     Controller class
+   @RequestMapping("rose")
+   void acceptData() {
+   }
+
+@RequestMapping(value="lotus" method = RequestMethod.GET) ->
+   html file
+   form action="lotus"  method="get"
+     Controller class
+   @RequestMapping("lotus")
+   void showData() {
+   }
+RequestMethod.GET -> display of data
+RequestMethod.POST-> insertion of data
+RequestMethod.PUT-> modification of existing data
+RequestMethod.DELTE-> deletion of existing data
+
+@PathVariable
+@RequestParam
+@ModelAttribute
+
+One MVC & Web configuration file in Spring MVC-> xml or .java
+It provides informations for DispatcherServlet
+if it is xml, it must same level of web.xml -> name should be anyname-servlet.xml
+ 
+mydemo-servlet.xml
+
+What is difference between @Component & @Bean ?
+@Component: It is a class-level annotation. It is used to mark a Java class as a bean. A Java class annotated with @Component is found during the classpath. The Spring Framework pick it up and configure it in the application context as a Spring Bean.
+
+SpringMVC -> exception handling , without xml files, crud
+
+ findEmployee -> FindEmployee.jsp (Enter employee number:)-> EmployeeDisplay.jsp
+                                                                                                                        employee id
+                                                                                                                                         name
+                                                                                                                                         salary
+                                                                                                                                         net
+                                                                                                                             return, net-calculate,delete
+
+create table product (
+  id int(5) ,
+  name varchar(25) not null,
+  rate double(10,2) not null,
+  stock double (10,2) not null,
+  primary key(id) 
+);
+
+  insert into product values (1001,'Rice', 45.00,1500.00);
+  insert into product values (1002,'Wheat',50.00,2000.00),(1003,'Sugar',56.00,250.00),(1004,'Salt',25.00,2500.00),(1005,'Ghee',75.00,375.00)
+
+
+@Controller
+class ABC{
+
+}
+
+mydemo-servlet.xml
+
+ProductEntry
+Jsp------->Controller------>Service---------------------------->DAO----->Database
+                 ProductDTO        ProductDTO-->Product
+
+ProductDisplay
+Database ---------->DAO----------------------->Service--------------->Controller----------->JSP
+                                 Product                    Product--->ProductDTO      ProductDTO
+
+Service class tasks
+1. Business logic processing
+2. Communicating between controller & dao classes.
+
+Spring form automatically creates the bean class object through it's <form:input>, only thing you need to specify which <form:input> will assigned value to which attribute of bean class object through path attribute
+
+
+hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+hibernate.connection.driver_class = com.mysql.cj.jdbc.Driver
+hibernate.connection.url = jdbc:mysql://localhost:3306/prutechDB
+hibernate.connection.username = root
+hibernate.connection.password =
+hibernate.hbm2ddl.auto=update
+
+
+
+class Publisher{
+   private String publisherName;
+   private Integer regno;
+   private String city;
+   }
+
+class Author{
+   private String authorName;
+   private String category;
+   private Double honorium;
+   }
+class Book{
+   private Integer bookId;
+    private String bookTitle;
+    private Author author1;
+    private Author author2;
+    private Double price;
+   private  Publisher publisher;
+}
+Annotation based DI both constructor & setter
+
+
+
+<java.version>17</java.version>
+   <maven.compiler.source>${java.version}</maven.compiler.source>
+   <maven.compiler.target>${java.version}</maven.compiler.target>
+
+Aspect Oriented Programming (AOP): Here application is divided based on aspects i.e services.
+Cross cutting concern : --> The service which is not associated with  the actual task of application but it is also very importent one eg login service.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
