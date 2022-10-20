@@ -1,0 +1,118 @@
+
+I want to develop e-coomerce application for like Flipkart/Amazon. What are the modules/services ?
+ans:
+1. Product Module/service.
+2. Order/Cart Module/service..
+3. Financial Module/service..
+4. Customer Module/service..
+5. Vendor Module/service..
+6. Login Module./service.
+
+ ECommorceApp  
+
+
+What is Monolithic Architecture?
+Monolithic architecture is like a big container in which all the software components/business services of an application are clubbed into a single package or Single jar/war file
+
+What is Microservice:
+Microservice is a service-based application development methodology. In this methodology, big applications will be divided into smallest independent and interconnected  service unit/application. Here each service will serve only one business need. It  helps arrange applications as a loosely coupled service collection. 
+
+1. Product Application.
+2. Order/Cart Application.
+3. Financial Application.
+4. Customer  Application.
+5. Vendor Application.
+6. Login Application.
+
+
+Following are some rules that we need to keep in mind while developing a Microservice-oriented application.
+
+Independent − Each microservice should be independently deployable.
+
+Coupling − All microservices should be loosely coupled with one another such that changes in one will not affect the other.
+
+Business Goal − Each service unit of the entire application should be the smallest and capable of delivering one specific business goal.
+
+Let us consider an example of online shopping portal to understand microservice in depth. Now, let us break this entire E-commerce portal into small business units such as user management, order management, check-in, payment management, delivery management, etc. One successful order needs to proceed through all of these modules within a specific time frame. 
+
+Each of these business modules should have its own business logic and stakeholder. You do need some enterprise level application consisting of different layers such as front-end, back-end, database, etc.
+
+
+Microservices vs. Monolithic Architecture
+https://www.guru99.com/microservices-tutorial.html
+
+
+ 
+
+What is Scaling:
+Scaling is a process of breaking down a software in different units. We have three types of scaling procedures that is followed in the industries.
+
+X-Axis Scaling
+X-axis scaling is also called as horizontal scaling. In this procedure, the entire application is sub-divided into different horizontal parts.  ie. breaking a sequential piece of logic into smaller pieces so that they can be executed in parallel across multiple machines. As an example, we can consider any JSP servlet application. In this application, the controller controls every request and it will generate view by communicating with the model whenever necessary. Normally, monolithic applications follow this scaling method. one software will be scaled depending on its different task that the unit is responsible for. For example, the controller is responsible for controlling the incoming and outgoing request, the view is responsible for representing the business functionality to the users in the browser, while the model is responsible to store our data and it works as the database.
+
+Y-Axis Scaling
+Y-axis scaling is also called as a vertical scaling that includes any resource level scaling.  In this type of scaling, the users request is redirected and restricted by implementing some logic.
+Let us consider Facebook as an example. Facebook needs to handle 1.79 million users in every second; hence, controlling the traffic is a huge responsibility of Facebook network engineers. To overcome from any hazard, they follow Y-axis scaling which includes running multiple servers with the same application at the same time. Now in order to control this huge level of traffic, Facebook redirects all the traffic from one region to a specific server. This transferring of traffic based on the region is called load balancing in architectural language. This method of breaking down resources into small independent business units is known as Y-Axis scaling.
+
+Z-Axis Scaling
+ However, one application can also be scaled at the business level, which is called as Z-axis scaling. 
+
+Following is the list of services that can be implemented using Microservice architecture.
+
+Platform as a Service [PaaS] :PaaS originally develops to provide a built-in architecture or infrastructure to developers. The platform is given as a tool which can be customized according to the business needs. PaaS plays an important role in mobile application development.
+
+Software as a Service [SaaS] − Software as a Service is a software licensing business, where the software is centrally hosted and licensed on a subscription basis. 
+
+Infrastructure as a Service [IaaS] − Infrastructure plays a good role in IT industries. Using cloud computing, some of the organizations provide virtual infrastructure as their services. IaaS is very helpful for bringing agility, cost-effectiveness, security, performance, productivity, etc. in software development. Amazon EC2 and Microsoft Azure are the biggest examples of IaaS
+
+. In microservice, we split each function into one process. Each of these services will be independent and full stack in nature.
+
+Functional decomposition plays an important role in building your microservices
+
+Aggregator pattern is the simplest web pattern that can be implemented while developing a microservice. In this composition pattern, a simple web module will act as a load balancer, which means it will call different services as per requirements.
+
+Proxy microservice pattern is a variation of the aggregator model. In this model we will use proxy module instead of the aggregation module. Proxy service may call different services individually.
+
+
+
+
+
+
+Chained Pattern
+As the name suggests, this type of composition pattern will follow the chain structure. Here, we will not be using anything in between the client and service layer. Instead, we will allow the client to communicate directly with the services and all the services will be chained up in a such a manner that the output of one service will be the input of the next service.
+
+To connect with different services in Microservice application , a server is required. The server can be any one all combination of the following:
+Components of Microservices
+There are the following components of microservices:
+
+Spring Cloud Config Server
+Netflix Eureka Naming Server-> Default port no : 8761
+Hystrix Server
+Netflix ZuulAPI Gateway Server
+Netflix Ribbon
+Zipkin Distributed Tracing Server
+ 
+Feign client
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
